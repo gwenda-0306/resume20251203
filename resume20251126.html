@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>個人履歷表</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 12px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    h2 {
+      border-left: 5px solid #4a90e2;
+      padding-left: 10px;
+      margin-top: 30px;
+    }
+    .info {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .info div {
+      width: 48%;
+      margin-bottom: 10px;
+    }
+    .skills span {
+      display: inline-block;
+      background: #4a90e2;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 8px;
+      margin: 5px 5px 0 0;
+      font-size: 14px;
+    }
+    .button {
+      margin-top: 30px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      background: #4a90e2;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #3577c8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>個人履歷表</h1>
+    <h2>基本資料</h2>
+    <div class="info">
+      <div><strong>姓名：</strong>曾彤</div>
+      <div><strong>學號：</strong>114031085</div>
+      <div><strong>科系：</strong>亞洲大學 經營管理學系</div>
+      <div><strong>Email：</strong>example@mail.com</div>
+    </div>
+
+    <h2>學歷<\/h2>
+    <p>國立中興大學附屬高級中學 — 畢業<\/p>
+    <p>亞洲大學 經營管理學系 — 在學中<\/p>
+
+    <h2>技能</h2>
+    <div class="skills">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+      <span>資料分析</span>
+      <span>團隊合作</span>
+      <span>專案管理</span>
+    </div>
+
+    <h2>自傳<\/h2>
+    <p>
+      我是亞洲大學經營管理學系的學生，具備良好的團隊合作能力與問題解決能力。高中就讀於興大附中，期間積極參與校內活動。平時喜歡打羽毛球，也愛接觸各種新鮮事物，例如探索咖啡館、亂逛市集、收集有趣的小物等。喜歡挑戰、持續學習，並致力於將管理知識與科技工具整合，提升效率。
+    <\/p>
+
+    <h2>興趣</h2>
+    <ul>
+      <li>羽毛球</li>
+      <li>旅行與探店</li>
+      <li>聽音樂與看電影</li>
+      <li>收集有趣小物</li>
+      <li>嘗試新活動與新體驗</li>
+    </ul>
+
+    <div class="button">
+      <button onclick="downloadResume()">下載履歷（HTML）</button>
+      <button onclick="downloadPDF()" style="margin-left:12px; background:#2dbe60;">下載履歷（PDF）</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script>
+    function downloadResume() {
+      const element = document.createElement('a');
+      const file = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+      element.href = URL.createObjectURL(file);
+      element.download = 'resume.html';
+      element.click();
+    }
+
+    async function downloadPDF() {
+      const container = document.querySelector('.container');
+      // 增加 scale 提升解析度
+      const canvas = await html2canvas(container, {scale: 2});
+      const imgData = canvas.toDataURL('image/png');
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = 210; // A4 width mm
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      // 若高度超過 A4，依序分頁
+      if (pdfHeight <= 297) {
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      } else {
+        let position = 0;
+        let remainingHeight = pdfHeight;
+        const pageHeight = 297; // A4 height mm
+        // 將 canvas 切成多頁，簡單方法：使用 addImage 並逐頁調整 y
+        pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight);
+      }
+      pdf.save('resume.pdf');
+    }
+  <\/script>
+</body>
+</html>
