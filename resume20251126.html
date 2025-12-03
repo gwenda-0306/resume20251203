@@ -1,149 +1,214 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>個人履歷表</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      margin: 0;
-      padding: 0;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>個人履歷｜曾彤</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+    background: #0f1115;
+    color: #e5e5e5;
+    line-height: 1.8;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #1a1d23;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 0 35px rgba(0,0,0,0.35);
+  }
+
+  h1 {
+    margin-top: 0;
+    font-size: 34px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #9ca3af;
+    margin-top: -12px;
+    margin-bottom: 30px;
+  }
+
+  /* 頭像 */
+  .photo {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #2f3542;
+    float: right;
+    margin-left: 25px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    border-left: 5px solid #4a90e2;
+    padding-left: 12px;
+    margin-top: 50px;
+    font-size: 22px;
+  }
+
+  .info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .info div {
+    width: 48%;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin: 8px 0;
+  }
+
+  /* 技能標籤 */
+  .skills span {
+    display: inline-block;
+    background: rgba(74,144,226,0.12);
+    color: #4a90e2;
+    padding: 8px 14px;
+    border-radius: 8px;
+    margin: 6px 6px 0 0;
+    border: 1px solid #4a90e2;
+    font-size: 14px;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  .section-block {
+    margin-bottom: 10px;
+  }
+
+  /* 按鈕 */
+  .button {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  button {
+    padding: 12px 26px;
+    background: #4a90e2;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+  }
+
+  button:hover {
+    background: #3577c8;
+  }
+
+  @media (max-width: 600px) {
+    .info div { width: 100%; }
+    .photo {
+      float: none;
+      display: block;
+      margin: 0 auto 25px auto;
     }
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      border-radius: 12px;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    h2 {
-      border-left: 5px solid #4a90e2;
-      padding-left: 10px;
-      margin-top: 30px;
-    }
-    .info {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    .info div {
-      width: 48%;
-      margin-bottom: 10px;
-    }
-    .skills span {
-      display: inline-block;
-      background: #4a90e2;
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 8px;
-      margin: 5px 5px 0 0;
-      font-size: 14px;
-    }
-    .button {
-      margin-top: 30px;
-      text-align: center;
-    }
-    button {
-      padding: 10px 20px;
-      background: #4a90e2;
-      border: none;
-      color: white;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #3577c8;
-    }
-  </style>
+  }
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>個人履歷表</h1>
-    <h2>基本資料</h2>
-    <div class="info">
-      <div><strong>姓名：</strong>曾彤</div>
-      <div><strong>學號：</strong>114031085</div>
-      <div><strong>科系：</strong>亞洲大學 經營管理學系</div>
-      <div><strong>Email：</strong>example@mail.com</div>
-    </div>
+<div class="container">
 
-    <h2>學歷<\/h2>
-    <p>國立中興大學附屬高級中學 — 畢業<\/p>
-    <p>亞洲大學 經營管理學系 — 在學中<\/p>
+<h1>個人履歷表｜曾彤</h1>
+<p class="subtitle">Resume / Curriculum Vitae</p >
 
-    <h2>技能</h2>
-    <div class="skills">
-      <span>HTML</span>
-      <span>CSS</span>
-      <span>JavaScript</span>
-      <span>資料分析</span>
-      <span>團隊合作</span>
-      <span>專案管理</span>
-    </div>
+<!-- 個人照片（Base64 已內嵌） -->
+<img
+  class="photo"
+  src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QCMRXhpZgAATU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAA"
+  alt="個人照片"
+/>
 
-    <h2>自傳<\/h2>
-    <p>
-      我是亞洲大學經營管理學系的學生，具備良好的團隊合作能力與問題解決能力。高中就讀於興大附中，期間積極參與校內活動。平時喜歡打羽毛球，也愛接觸各種新鮮事物，例如探索咖啡館、亂逛市集、收集有趣的小物等。喜歡挑戰、持續學習，並致力於將管理知識與科技工具整合，提升效率。
-    <\/p>
+<h2>基本資料</h2>
+<div class="info">
+  <div><strong>姓名：</strong>曾彤</div>
+  <div><strong>學號：</strong>114031085</div>
+  <div><strong>科系：</strong>亞洲大學 經營管理學系</div>
+  <div><strong>Email：</strong>petstw888@gmail.com</div>
+</div>
 
-    <h2>興趣</h2>
-    <ul>
-      <li>羽毛球</li>
-      <li>旅行與探店</li>
-      <li>聽音樂與看電影</li>
-      <li>收集有趣小物</li>
-      <li>嘗試新活動與新體驗</li>
-    </ul>
+<h2>專業簡介</h2>
+<p>
+  我是一名具備分析思維、組織能力與穩定執行力的經管系學生，熟悉基本前端與資料處理工具，
+  喜歡透過結構化方式完成任務。在團隊合作中，擅長協調與分配、抓住目標核心，並以務實的方式解決問題。
+  對效率提升、流程優化與科技整合特別感興趣。
+</p >
 
-    <div class="button">
-      <button onclick="downloadResume()">下載履歷（HTML）</button>
-      <button onclick="downloadPDF()" style="margin-left:12px; background:#2dbe60;">下載履歷（PDF）</button>
-    </div>
-  </div>
+<h2>學歷</h2>
+<p class="section-block"><strong>國立中興大學附屬高級中學</strong> — 畢業</p >
+<p class="section-block"><strong>亞洲大學 經營管理學系</strong> — 在學中</p >
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<h2>技能</h2>
+<div class="skills">
+  <span>HTML / CSS / JavaScript</span>
+  <span>資料分析（Excel、基礎統計）</span>
+  <span>專案規劃</span>
+  <span>簡報設計</span>
+  <span>團隊協作</span>
+  <span>時間管理</span>
+</div>
 
-  <script>
-    function downloadResume() {
-      const element = document.createElement('a');
-      const file = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
-      element.href = URL.createObjectURL(file);
-      element.download = 'resume.html';
-      element.click();
-    }
+<h2>經驗與成就</h2>
+<ul>
+  <li>多次參與校內專案與小組報告，負責企劃撰寫、資料彙整與展示。</li>
+  <li>能獨立撰寫小型網頁頁面，並能協助團隊處理基本技術問題。</li>
+  <li>曾協助系上活動的流程安排與細節處理，熟悉分工與溝通模式。</li>
+</ul>
 
-    async function downloadPDF() {
-      const container = document.querySelector('.container');
-      // 增加 scale 提升解析度
-      const canvas = await html2canvas(container, {scale: 2});
-      const imgData = canvas.toDataURL('image/png');
-      const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const pdfWidth = 210; // A4 width mm
-      const imgProps = pdf.getImageProperties(imgData);
-      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-      // 若高度超過 A4，依序分頁
-      if (pdfHeight <= 297) {
-        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-      } else {
-        let position = 0;
-        let remainingHeight = pdfHeight;
-        const pageHeight = 297; // A4 height mm
-        // 將 canvas 切成多頁，簡單方法：使用 addImage 並逐頁調整 y
-        pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight);
-      }
-      pdf.save('resume.pdf');
-    }
-  <\/script>
+<h2>自傳</h2>
+<p>
+  我喜歡探索新的事物，也習慣在學習後整理出一套適合自己的方法。
+  在團隊合作中，我傾向冷靜分析情況並提出具體可行的方案；
+  在獨立工作時，我會設定明確階段目標，避免效率下降。
+  我相信任何任務都能透過配速、分解與溝通，使結果更接近最佳狀態。
+</p >
+<p>
+  生活中，我喜歡羽毛球、旅行、聽音樂與搜集有趣的小物。
+  這些興趣讓我維持好奇心，也讓我能在壓力中找到平衡。
+  期待未來能把經營管理與科技整合，成為能真正提升效率的人。
+</p >
+
+<h2>興趣</h2>
+<ul>
+  <li>羽毛球與運動</li>
+  <li>旅行・咖啡廳探訪</li>
+  <li>音樂・電影</li>
+  <li>收集特色小物</li>
+  <li>嘗試新體驗</li>
+</ul>
+
+<div class="button">
+  <button onclick="downloadResume()">下載履歷（HTML）</button>
+</div>
+
+</div>
+
+<script>
+  function downloadResume() {
+    const a = document.createElement("a");
+    const file = new Blob([document.documentElement.outerHTML], { type: "text/html" });
+    a.href = URL.createObjectURL(file);
+    a.download = "resume.html";
+    a.click();
+  }
+</script>
+
 </body>
 </html>
